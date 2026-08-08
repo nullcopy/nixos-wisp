@@ -3,6 +3,8 @@
 NixOS configuration for **wisp** (HP ZBook Ultra G1a laptop), built on
 [nixos-core](https://github.com/nullcopy/nixos-core).
 
+- `flake.nix` — consumes [nixos-core](https://github.com/nullcopy/nixos-core)
+  as the `core` input; `flake.lock` pins it (update with `nix flake update core`)
 - `configuration.nix` — hostname, `core.*` toggles (including `core.luksFido2`
   for FIDO2 LUKS unlock), user accounts, wisp-specific hardware quirks
   (fwupd, CoolerControl, ForgeBox udev rule)

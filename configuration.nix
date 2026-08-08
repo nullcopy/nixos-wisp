@@ -40,7 +40,7 @@
   services.fwupd.enable = true;
 
   # CoolerControl is a hwmon dashboard/controller that can help if the
-  # kernel/fimrware exposes fan control
+  # kernel/firmware exposes fan control
   programs.coolercontrol.enable = true;
 
   # `sensors` for better temperature reading

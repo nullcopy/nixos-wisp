@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Format staged .nix files with nixfmt before committing.
+# Note: re-stages whole files, so partially-staged .nix hunks get fully staged.
+set -euo pipefail
 
-staged=$(git diff --cached --name-only --diff-filter=ACM -- '*.nix')
-[ -z "$staged" ] && exit 0
+if ! command -v nixfmt >/dev/null 2>&1; then
+  echo "pre-commit: nixfmt not found; committing unformatted" >&2
+  exit 0
+fi
 
-# Format and re-stage
-echo "$staged" | xargs nixfmt
-echo "$staged" | xargs git add
-
-exit 0
+git diff --cached --name-only --diff-filter=ACM -z -- '*.nix' | xargs -0 -r nixfmt
+git diff --cached --name-only --diff-filter=ACM -z -- '*.nix' | xargs -0 -r git add
