@@ -3,8 +3,10 @@
 # Note: re-stages whole files, so partially-staged .nix hunks get fully staged.
 set -euo pipefail
 
-if ! command -v nixfmt >/dev/null 2>&1; then
-  echo "pre-commit: nixfmt not found; committing unformatted" >&2
+# Probe with --version: catches both a missing binary and a broken one
+# (e.g. a nixfmt with dangling shared-library deps).
+if ! nixfmt --version >/dev/null 2>&1; then
+  echo "pre-commit: nixfmt not found or not working; committing unformatted" >&2
   exit 0
 fi
 
