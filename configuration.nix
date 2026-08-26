@@ -21,9 +21,9 @@
   # FIDO2 LUKS unlock (EFI: /dev/nvme0n1p1, LUKS: /dev/nvme0n1p2). The
   # mapper name predates the install script's "cryptroot" default, and the
   # generated hardware config doesn't declare the device, so both are set
-  # explicitly here.
-  core.luksFido2 = {
-    enable = true;
+  # explicitly here. Manage enrolled tokens/passphrases with `sudo fde-keys`.
+  core.fde = {
+    fido2.enable = true;
     name = "nixos-enc";
     device = "/dev/nvme0n1p2";
   };
