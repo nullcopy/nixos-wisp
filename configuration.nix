@@ -15,7 +15,7 @@
 
   ## ----- nixos-core toggles ------------------------------------------------
   core.desktop.enable = true; # niri + greetd + audio + Wayland plumbing
-  core.tailscale.enable = true; # daemon; per-user `up` lives in dotfiles
+  core.tailscale.enable = true; # tailnet policy in /etc/tailscale/connect.env
   core.nymvpn.enable = true;
 
   # FIDO2 LUKS unlock (EFI: /dev/nvme0n1p1, LUKS: /dev/nvme0n1p2). The
