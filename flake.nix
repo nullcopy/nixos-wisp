@@ -19,7 +19,7 @@
     }:
     {
       # The attribute name must match the hostname, so
-      # `sudo nixos-rebuild switch --flake ~/nixos` finds it automatically.
+      # `sudo nixos-rebuild switch --flake ~/.nixos` finds it automatically.
       nixosConfigurations.wisp = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

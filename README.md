@@ -15,7 +15,7 @@ NixOS configuration for **wisp** (HP ZBook Ultra G1a laptop), built on
 ## Day to day
 
 ```
-sudo nixos-rebuild switch --flake ~/nixos   # or wherever this is cloned
+sudo nixos-rebuild switch --flake ~/.nixos   # or wherever this is cloned
 nix flake update core                       # pull in nixos-core improvements
 nix flake update                            # bump everything (core + nixpkgs)
 ```
